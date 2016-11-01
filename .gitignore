@@ -2,3 +2,4 @@
 /.idea
 *.log
 .DS_Store
+/client/static/j/r.js

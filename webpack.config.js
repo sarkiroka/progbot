@@ -3,7 +3,7 @@
  */
 var webpack = require('webpack');
 module.exports = {
-	entry: './client/src/j/robotos.js',
+	entry: './client/src/j/main-part.js',
 	module: {
 		loaders: [
 			{

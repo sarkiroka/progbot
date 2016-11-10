@@ -1,12 +1,12 @@
 /**
  * @author sarkiroka
  */
-var createArrow=require('./create-arrow');
+var createArrow = require('./create-arrow');
 var init = require('./init');
 var textTexture = require('./text-texture');
 
 var {scene, camera, renderer}=init();
-var texture=textTexture();
+var texture = textTexture();
 
 var cubes = [];
 for (var c = 0; c < 3; c++) {
@@ -49,9 +49,7 @@ for (var i = 0; i < map.length; i++) {
 
 var axisHelper = new THREE.AxisHelper(50);
 scene.add(axisHelper);
-var arrowObject = createArrow();
-arrowObject.mesh.position.set(0, 0, 2);
-arrowObject.line.position.set(0, 0, 2);
+var arrowObject = createArrow(0, 0, 2);
 scene.add(arrowObject.mesh);
 scene.add(arrowObject.line);
 

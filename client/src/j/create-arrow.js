@@ -1,7 +1,7 @@
 /**
  * @author sarkiroka on 2016.11.07.
  */
-module.exports = function () {
+module.exports = function (x, y, z) {
 	var points = [];
 	var width = 0.5;
 	var height = 0.6;
@@ -32,6 +32,8 @@ module.exports = function () {
 	var mesh = new THREE.Mesh(geometry, material);
 	mesh.rotation.z = -Math.PI / 2;
 	line.rotation.z = -Math.PI / 2;
+	mesh.position.set(x, y, z);
+	line.position.set(x, y, z);
 	return {mesh, line};
 
 };

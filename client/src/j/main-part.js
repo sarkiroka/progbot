@@ -2,25 +2,12 @@
  * @author sarkiroka
  */
 var createArrow = require('./create-arrow');
+var createMap = require('./create-map');
 var init = require('./init');
 
 var {scene, camera, renderer}=init();
-var mapSize = 10;
-//piros:x, zöld:y, kék:z
-var map = [1, 2, 3, 4, 5, 12, 15, 25, 35, 45];
-for (var i = 0; i < map.length; i++) {
-	var mapItem = map[i];
-	var geometry = new THREE.PlaneGeometry(0.99, 0.99, 100);
-	var material = new THREE.MeshBasicMaterial({color: 0x666666, side: THREE.DoubleSide});
-	var plane = new THREE.Mesh(geometry, material);
-	//plane.rotation.x = Math.PI / 2;
-	var y = Math.ceil(mapItem / mapSize);
-	var x = mapItem % mapSize;
-	var half = mapSize / 2;
-	plane.position.x = -half + x;
-	plane.position.y = -half + y;
-	scene.add(plane);
-}
+
+createMap(10, [1, 2, 3, 4, 5, 12, 15, 25, 35, 45], scene);
 
 var axisHelper = new THREE.AxisHelper(50);
 scene.add(axisHelper);

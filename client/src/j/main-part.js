@@ -8,7 +8,7 @@ var init = require('./init');
 var {scene, camera, renderer}=init();
 
 createMap(10, [1, 2, 3, 4, 5, 12, 15, 25, 35, 45], scene);
-
+//red:x, green:y, blue:z
 var axisHelper = new THREE.AxisHelper(50);
 scene.add(axisHelper);
 var arrowObject = createArrow(0, 0, 2);

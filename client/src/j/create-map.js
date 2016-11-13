@@ -2,7 +2,6 @@
  * @author sarkiroka on 2016.11.12.
  */
 module.exports = function (sizeOfMap, map, scene) {
-//piros:x, zöld:y, kék:z
 	for (var i = 0; i < map.length; i++) {
 		var mapItem = map[i];
 		var geometry = new THREE.PlaneGeometry(0.99, 0.99, 100);

@@ -1,6 +1,7 @@
 /**
  * @author sarkiroka
  */
+var addLights = require('./add-lights');
 var createArrow = require('./create-arrow');
 var createMap = require('./create-map');
 var showCoordinateAxis = require('./show-coordinate-axis');
@@ -17,10 +18,7 @@ scene.add(arrowObject.line);
 var position = 8;
 camera.position.set(position, position, position);
 
-scene.add(new THREE.AmbientLight(0x666666));
-var light = new THREE.PointLight(0xffffff);
-light.position.set(100, 100, 100);
-scene.add(light);
+addLights(scene);
 
 var startTime = Date.now();
 scene.rotation.x = -Math.PI / 2;

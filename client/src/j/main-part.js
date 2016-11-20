@@ -4,8 +4,9 @@
 var addLights = require('./add-lights');
 var addArrow = require('./add-arrow');
 var createMap = require('./create-map');
-var showCoordinateAxis = require('./show-coordinate-axis');
 var init = require('./init');
+var render = require('./render');
+var showCoordinateAxis = require('./show-coordinate-axis');
 
 var {scene, camera, renderer}=init();
 
@@ -18,20 +19,7 @@ camera.position.set(position, position, position);
 
 addLights(scene);
 
-var startTime = Date.now();
 scene.rotation.x = -Math.PI / 2;
 scene.rotation.z = Math.PI / 2;
-var render = function () {
-	requestAnimationFrame(render);
-	var diff = Date.now() - startTime;
 
-	/*
-	 var timer = diff * 0.0001;
-
-	 camera.position.x = Math.cos(timer) * 10;
-	 camera.position.z = Math.sin(timer) * 10;*/
-	camera.lookAt(scene.position);
-
-	renderer.render(scene, camera);
-};
-render();
+render(scene, camera, renderer);

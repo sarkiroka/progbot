@@ -1,7 +1,10 @@
 /**
  * @author sarkiroka on 2016.11.07.
  */
-module.exports = function (x, y, z, scene) {
+module.exports = function (direction, scene) {
+	var x=0;
+	var y=0;
+	var z=2;
 	var points = [];
 	var width = 0.5;
 	var height = 0.6;

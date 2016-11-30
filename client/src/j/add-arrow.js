@@ -1,6 +1,7 @@
 /**
  * @author sarkiroka on 2016.11.07.
  */
+
 module.exports = function (direction, scene) {
 	var x=0;
 	var y=0;

@@ -4,7 +4,7 @@
 var addLights = require('./add-lights');
 var addArrow = require('./add-arrow');
 var createMap = require('./create-map');
-var DIRECTIONS=require('./directions');
+var DIRECTIONS=require('./constants');
 var init = require('./init');
 var render = require('./render');
 var showCoordinateAxis = require('./show-coordinate-axis');

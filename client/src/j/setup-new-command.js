@@ -1,7 +1,7 @@
 /**
  * @author sarkiroka on 2016.12.25.
  */
-var DIRECTIONS = require('./directions');
+var DIRECTIONS = require('./constants');
 module.exports = function (config) {
 	return function (code) {
 		switch (code) {

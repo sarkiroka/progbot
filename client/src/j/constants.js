@@ -5,4 +5,9 @@
 const DIRECTIONS = {
 	RIGHT: 1, LEFT: 2, FORWARD: 3
 };
-module.exports = DIRECTIONS;
+const GAME_STATE = {
+	PROGRAMMING: 0,
+	RUNNING: 1,
+	RESULT: 2
+};
+module.exports = {DIRECTIONS, GAME_STATE};

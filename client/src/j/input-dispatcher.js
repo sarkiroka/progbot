@@ -5,6 +5,10 @@ var constants = require('./constants');
 module.exports = function (config) {
 	return function (code) {
 		switch (code) {
+			case 'Enter':
+			case 'NumpadEnter':
+				config.start();
+				break;
 			case 'ArrowUp':
 				config.move(constants.DIRECTIONS.FORWARD);
 				break;

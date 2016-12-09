@@ -4,7 +4,7 @@
 var startTime = Date.now();
 module.exports = function (scene, camera, renderer) {
 	var render = function () {
-		requestAnimationFrame(render);
+		//requestAnimationFrame(render);
 		var diff = Date.now() - startTime;
 
 		/*

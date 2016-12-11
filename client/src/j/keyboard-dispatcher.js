@@ -1,8 +1,8 @@
 /**
  * @author sarkiroka
  */
-var stateOfTheGame=require('./state-of-the-game');
+var move=require('./input/move');
 module.exports = {
-	move:dir=>console.log(dir),
+	move,
 	start:()=>{}
 };

@@ -8,6 +8,6 @@ module.exports = function (direction) {
 	if (stateOfTheGame.is == constants.GAME_STATE.PROGRAMMING) {
 		console.log(direction);
 	} else {
-		console.warn('cannot programming while gami is running');
+		console.warn('cannot programming while game is running');
 	}
 };

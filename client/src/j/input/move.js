@@ -3,7 +3,7 @@
  * @author sarkiroka on 2016.12.11.
  */
 var constants = require('../constants');
-var stateOfTheGame = require('../state-of-the-game');
+var stateOfTheGame = require('../game/the-game');
 module.exports = function (direction) {
 	if (stateOfTheGame.is == constants.GAME_STATE.PROGRAMMING) {
 		console.log(direction);

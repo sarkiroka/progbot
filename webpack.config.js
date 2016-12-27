@@ -8,7 +8,8 @@ module.exports = {
 		loaders: [
 			{
 				test:/.*\.js$/,
-				loader: 'babel?presets[]=es2015'
+				loader: 'babel?presets[]=es2015',
+				exclude: /node_modules/
 			}
 		]
 	},
@@ -16,5 +17,5 @@ module.exports = {
 		filename: 'r.js',
 		path: './client/static/j'
 	},
-	plugins: [new webpack.optimize.UglifyJsPlugin({})]
+	plugins: [/*new webpack.optimize.UglifyJsPlugin({})*/]
 };

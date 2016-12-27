@@ -3,13 +3,15 @@
  * @author sarkiroka on 2016.12.17.
  */
 var constants = require('../constants');
-var stateOfTheGame = require('../game/the-game');
+var debug = require('debug')('progbot:start');
+var theGame = require('../game/the-game');
 module.exports = function () {
-	if (stateOfTheGame.is == constants.GAME_STATE.PROGRAMMING) {
-		stateOfTheGame.is = constants.GAME_STATE.RUNNING;
+	debug('try to start the game. the game state now is', theGame.is);
+	if (theGame.is == constants.GAME_STATE.PROGRAMMING) {
+		theGame.is = constants.GAME_STATE.RUNNING;
 		setTimeout(()=> {
-			stateOfTheGame.is = constants.GAME_STATE.PROGRAMMING;
-			console.info('returning to the programming state');
+			theGame.is = constants.GAME_STATE.PROGRAMMING;
+			debug('returning to the programming state');
 		}, 5000);
 	} else {
 		console.warn('already in running/result');

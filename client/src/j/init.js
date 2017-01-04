@@ -16,7 +16,7 @@ module.exports = function () {
 	scene.rotation.y = Math.PI * 2;
 	//scene.rotation.z = Math.PI;
 
-	osdScene.rotation.y = Math.PI / -2;
+	osdScene.rotation.y = Math.PI / -1.3333333;
 	osdScene.rotation.z = Math.PI;
 
 	addLights(scene);

@@ -7,9 +7,9 @@ module.exports = function (direction, scene) {
 	var y=0;
 	var z=2;
 	var points = [];
-	var width = 0.5;
-	var height = 0.6;
-	var depth = 0.1;
+	var width = 5;
+	var height = 6;
+	var depth = 1;
 	points.push(new THREE.Vector2(0, height));
 	points.push(new THREE.Vector2(width, 0));
 	points.push(new THREE.Vector2(width / 2, 0));

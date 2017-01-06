@@ -5,10 +5,10 @@ var webpack = require('webpack');
 module.exports = {
 	entry: './client/src/j/main-part.js',
 	module: {
-		loaders: [
+		rules: [
 			{
 				test:/.*\.js$/,
-				loader: 'babel?presets[]=es2015',
+				use: 'babel-loader',
 				exclude: /node_modules/
 			}
 		]

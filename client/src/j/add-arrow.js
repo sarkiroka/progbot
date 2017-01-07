@@ -1,15 +1,18 @@
 /**
  * @author sarkiroka on 2016.11.07.
  */
+const baseWidth = 5;
+const baseHeight = 6;
+const baseDepth = 1;
 
-module.exports = function (direction, scene) {
-	var x=0;
-	var y=0;
-	var z=2;
+module.exports = function (direction, scale, scene) {
+	var x = 0;
+	var y = 0;
+	var z = 2;
+	const width = baseWidth * scale;
+	const height = baseHeight * scale;
+	const depth = baseDepth * scale;
 	var points = [];
-	var width = 5;
-	var height = 6;
-	var depth = 1;
 	points.push(new THREE.Vector2(0, height));
 	points.push(new THREE.Vector2(width, 0));
 	points.push(new THREE.Vector2(width / 2, 0));

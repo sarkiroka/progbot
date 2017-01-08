@@ -5,25 +5,20 @@ var addArrow = require('../add-arrow');
 var constants = require('../constants');
 var theGame = require('./the-game');
 var three = require('../graphics/three');
-
+var scale = 0.5;
+var arrowPerRow = 16 / scale;
 
 module.exports = function (instruction) {
 	var programLength = theGame.program.length;
 	var projector = new THREE.Projector();
-	var p3D = new THREE.Vector3((1 + programLength) * 10, 10, (-5 + programLength) * 10);
 
-	console.log('e', p3D);
-	//p3D.unproject(three.camera);
-	//p3D.sub(three.camera.position);
-	//console.log('e', p3D);
+	var x = -92 + (programLength % arrowPerRow) * 12 * scale;
+	var y = 110 + 10 * scale - Math.floor(programLength / arrowPerRow) * 10;
+	var p3D = new THREE.Vector3(x, y, 0);
 
-//need extra steps to convert p2D to window's coordinates
-	//p2D.x = (p2D.x + 1) / 2 * window.innerWidth;
-	//p2D.y = -(p2D.y - 1) / 2 * window.innerHeight;
-
-	var arrowObject = addArrow(constants.DIRECTIONS.FORWARD, three.osdScene);
+	var arrowObject = addArrow(constants.DIRECTIONS.FORWARD, scale, three.osdScene);
 	arrowObject.mesh.position.set(p3D.x, p3D.y, p3D.z);
 	arrowObject.line.position.set(p3D.x, p3D.y, p3D.z);
-	//arrowObject.line.position.set(p3D);
+	arrowObject.seed = 1000 * Math.random;
 	theGame.program.push(arrowObject);
 };

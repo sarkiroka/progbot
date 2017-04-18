@@ -1,6 +1,9 @@
-/node_modules
+# editor
 .vscode
 /.idea
+
+# developer tools
+/node_modules
 *.log
 .DS_Store
 /client/static/j/r.js

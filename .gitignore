@@ -3,7 +3,8 @@
 .idea
 
 # developer tools
-/node_modules
-*.log
+developer-tools/node_modules
+developer-tools/latest_hash_of_package_json
+
+# etc
 .DS_Store
-/client/static/j/r.js

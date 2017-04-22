@@ -7,14 +7,11 @@
     "build-client": "./node_modules/.bin/webpack",
     "dev-client": "./node_modules/.bin/webpack --watch"
   },
-  "dependencies": {
-    "express": "4.14.0",
-    "path": "0.12.7",
-    "pug": "^2.0.0-beta6"
-  },
   "devDependencies": {
-    "babel-core": "^6.23.1",
-    "babel-loader": "^6.4.0",
-    "webpack": "^2.2.1"
+    "gulp": "3.9.1",
+    "gulp-plumber": "1.1.0",
+    "gulp-pug": "3.3.0",
+    "on-build-webpack": "0.1.0",
+    "webpack": "3.9.1"
   }
 }

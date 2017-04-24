@@ -2,11 +2,6 @@
   "name": "progbot",
   "version": "1.0.0",
   "private": true,
-  "scripts": {
-    "start": "node server/server.js",
-    "build-client": "./node_modules/.bin/webpack",
-    "dev-client": "./node_modules/.bin/webpack --watch"
-  },
   "devDependencies": {
     "gulp": "3.9.1",
     "gulp-plumber": "1.1.0",

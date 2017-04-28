@@ -1,0 +1,14 @@
+#!/bin/sh
+
+scripts="./scripts";
+
+if [ $# -eq 0 ] ; then
+    $scripts/startup
+else
+    command="$scripts/$1";
+    if [ -f $command ] ; then
+        $command
+    else
+        $scripts/help $1
+    fi
+fi

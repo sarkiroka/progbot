@@ -1,0 +1,16 @@
+#!/bin/sh
+echo
+echo "**********************"
+echo "* sarkiroka miniprog *"
+echo "**********************"
+echo
+if [ $# -ne 0 ] ; then
+    echo "Error: \"$1\" not available in this project"
+    echo ""
+fi
+echo "Available commands:"
+echo "    ./run                 - develop the application (build & watch)"
+echo "    ./run build           - build the application"
+echo "    ./run startup         - same as the standalone 'run' command"
+echo "    ./run help            - shows this help"
+echo ""

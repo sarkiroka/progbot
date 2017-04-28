@@ -1,0 +1,40 @@
+#!/bin/bash
+
+CURRENT_DIRECTORY=$(pwd | grep -o '[^/]*$')
+if [ "$CURRENT_DIRECTORY" == "developer-tools" ] ; then
+	cd ..
+fi
+
+latest_hash_of_package_json="$(git log --pretty=format:%H developer-tools/package.json | head -1)"
+latest_saved_hash=""
+
+cd developer-tools
+
+need_npm_i=false
+
+if [[ -f latest_hash_of_package_json && -d node_modules ]]; then
+	latest_saved_hash="$(cat latest_hash_of_package_json | head -1)"
+	if [ "$latest_saved_hash" == "$latest_hash_of_package_json" ]; then
+		echo "doesn't need npm i"
+		need_npm_i=false
+	else
+		echo "package.json is changed, need npm i"
+		need_npm_i=true
+	fi
+else
+	echo "initial run"
+	need_npm_i=true
+fi
+
+if $need_npm_i ; then
+	echo "running the npm install..."
+	npm set progress=false
+	npm i
+	OUT=$?
+	if [ $OUT -eq 0 ]; then
+		echo "${latest_hash_of_package_json}" > latest_hash_of_package_json
+	fi
+fi
+
+./node_modules/.bin/gulp
+./node_modules/.bin/webpack

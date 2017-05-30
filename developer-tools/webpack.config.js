@@ -16,7 +16,7 @@ module.exports = {
 	entry: ENTRY_PATH,
 	output: {
 		path: TARGET_PATH,
-		filename: 'miniprog.js'
+		filename: 'progbot.js'
 	},
 	plugins: [
 		new webpack.optimize.UglifyJsPlugin({

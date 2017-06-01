@@ -36,5 +36,5 @@ if $need_npm_i ; then
 	fi
 fi
 
-./node_modules/.bin/gulp
+./node_modules/.bin/gulp --silent
 ./node_modules/.bin/webpack

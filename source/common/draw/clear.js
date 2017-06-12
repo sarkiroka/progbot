@@ -1,6 +1,6 @@
 /**
  * törli a transzformációs mátrixot és lesatírozza a képernyőt
- * @author sarkiroka on 2017.12.02.
+ * @author sarkiroka on 2017.06.02.
  */
 var canvas = require('./canvas');
 var debug = require('debug')('progbot:draw:clear');

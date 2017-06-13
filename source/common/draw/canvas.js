@@ -1,6 +1,6 @@
 /**
  * ez tárolja a canvas-os objektumokat
- * @author sarkiroka on 2017.12.01.
+ * @author sarkiroka on 2017.06.01.
  */
 var exportObject = function (canvas, ctx) {
 	exportObject.canvas = canvas;

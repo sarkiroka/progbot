@@ -1,6 +1,6 @@
 /**
  * debug initialize in browser
- * @author sarkiroka on 2017.12.01.
+ * @author sarkiroka on 2017.06.01.
  */
 var Debug = require('debug');
 Debug.enable('progbot:*');

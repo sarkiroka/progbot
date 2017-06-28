@@ -5,6 +5,6 @@
 var canvas = require('../../draw/canvas');
 var debug = require('debug')('progbot:event:resize');
 module.exports = function (e) {
-	debug('resize event handling');
+	debug(e?'resize event handling':'initial resize event');
 	canvas.setSize(window.innerWidth, window.innerHeight)
 };

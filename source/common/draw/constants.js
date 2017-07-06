@@ -4,5 +4,5 @@
  */
 module.exports = {
 	//colors
-	backgroundColor:'#aaa'
+	backgroundColor: '#aaa'
 };

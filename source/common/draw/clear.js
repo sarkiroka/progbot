@@ -3,6 +3,7 @@
  * @author sarkiroka on 2017.06.02.
  */
 var canvas = require('./canvas');
+var constants=require('./constants');
 var debug = require('debug')('progbot:draw:clear');
 module.exports = function () {
 	debug('clear all pixels');

@@ -1,5 +1,5 @@
 /**
- *
+ * the end
  * @author sarkiroka on 2017.06.02.
  */
 var clear=require('../../draw/clear');

@@ -9,8 +9,4 @@ module.exports = function () {
 	debug('end of the game');
 	initKeyboard.done();
 	clear();
-	/*ctx.textAlign = 'center';
-	ctx.fillStyle = '#e00';
-	ctx.font = '64px Arial';
-	ctx.fillText('The End', 0, 0);*/
 };

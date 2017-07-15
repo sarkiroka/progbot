@@ -4,6 +4,7 @@
  */
 var clear=require('../../draw/clear');
 var debug=require('debug')('progbot:event:end-of-game');
+var theEnd=require('../../draw/the-end');
 module.exports = function () {
 	var initKeyboard=require('../../../init/init-keyboard');
 	debug('end of the game');

@@ -10,4 +10,5 @@ module.exports = function () {
 	debug('end of the game');
 	initKeyboard.done();
 	clear();
+	theEnd();
 };

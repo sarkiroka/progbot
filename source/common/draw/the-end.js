@@ -3,5 +3,8 @@
  * @author sarkiroka on 2017.07.13.
  */
 module.exports = function () {
-
+	/*ctx.textAlign = 'center';
+	 ctx.fillStyle = '#e00';
+	 ctx.font = '64px Arial';
+	 ctx.fillText('The End', 0, 0);*/
 };

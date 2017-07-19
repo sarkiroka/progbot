@@ -9,6 +9,5 @@ module.exports = function () {
 	var initKeyboard = require('../../../init/init-keyboard');
 	debug('end of the game');
 	initKeyboard.done();
-	clear();
 	theEnd();
 };

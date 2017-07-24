@@ -2,7 +2,7 @@
  * the end
  * @author sarkiroka on 2017.07.13.
  */
-var clear=require('./clear');
+var clear = require('./clear');
 module.exports = function () {
 	clear();
 	/*ctx.textAlign = 'center';

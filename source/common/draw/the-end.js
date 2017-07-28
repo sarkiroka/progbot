@@ -6,7 +6,7 @@ var canvas = require('./canvas');
 var clear = require('./clear');
 module.exports = function () {
 	clear();
-	var ctx=canvas.ctx;
+	var ctx = canvas.ctx;
 	/*ctx.textAlign = 'center';
 	 ctx.fillStyle = '#e00';
 	 ctx.font = '64px Arial';

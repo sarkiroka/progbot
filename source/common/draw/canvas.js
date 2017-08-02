@@ -8,9 +8,9 @@ var exportObject = function (canvas, ctx) {
 };
 exportObject.canvas = null;
 exportObject.ctx = null;
-exportObject.center={};
-exportObject.centerX=0;
-exportObject.centerY=0;
+exportObject.center = {};
+exportObject.centerX = 0;
+exportObject.centerY = 0;
 exportObject.setSize = function (width, height) {
 	exportObject.canvas.width = width;
 	exportObject.canvas.height = height;

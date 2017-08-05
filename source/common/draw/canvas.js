@@ -15,5 +15,6 @@ exportObject.setSize = function (width, height) {
 	exportObject.canvas.width = width;
 	exportObject.canvas.height = height;
 	exportObject.centerX = width / 2;
+	exportObject.centerY=height/2;
 };
 module.exports = exportObject;

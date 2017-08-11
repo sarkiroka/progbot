@@ -2,6 +2,7 @@
  *
  * @author sarkiroka on 2017.06.01.
  */
+var onBackspace=require('./on/backspace');
 var onEndOfGame=require('./on/end-of-game');
 module.exports = function (event) {
 	event.preventDefault();

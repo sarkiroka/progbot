@@ -31,8 +31,7 @@ module.exports = function (event) {
 			reDraw();
 			break;
 		case 'Backspace':
-			program.pop();
-			reDraw();
+			onBackspace();
 			break;
 		case 'F5':
 			location.reload();

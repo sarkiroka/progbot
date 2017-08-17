@@ -4,5 +4,5 @@
  */
 var redraw = require('../../draw/redraw');
 module.exports = function () {
-
+	redraw();
 };

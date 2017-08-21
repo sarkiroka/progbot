@@ -5,5 +5,6 @@
 var gameOnBackspace = require('../../../game/on/backspace');
 var redraw = require('../../draw/redraw');
 module.exports = function () {
+	gameOnBackspace();
 	redraw();
 };

@@ -48,6 +48,8 @@ if [ $? -ne 0 ] ; then
 	error=true
 fi
 
-if ! $error ; then
+if $error ; then
+	exit -1
+else
 	echo "application available in 'dist/progbot.html'"
 fi

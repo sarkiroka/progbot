@@ -8,6 +8,6 @@ It was developed on computer running linux and it was designed mainly for androi
 ## Start
 You should build all source file to run the game. It is easy, but you need to installed [nodejs](https://nodejs.org/en/download/) on your computer. To build, run this simple command in the root of this project:
 ```
-./run build
+./run
 ```
 After that you have some new file in the `dist` folder. Open the html file in the browser, and enjoy :)

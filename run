@@ -3,7 +3,7 @@
 scripts="./developer-tools/scripts";
 
 if [ $# -eq 0 ] ; then
-    $scripts/startup
+    $scripts/build
 else
     command="$scripts/$1";
     if [ -f $command ] ; then

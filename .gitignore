@@ -1,3 +1,6 @@
+# application
+dist
+
 # editor
 .vscode
 .idea

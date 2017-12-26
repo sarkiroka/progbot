@@ -26,6 +26,7 @@ else
 	need_npm_i=true
 fi
 
+error=false
 if $need_npm_i ; then
 	echo "running the npm install..."
 	npm set progress=false
@@ -33,8 +34,20 @@ if $need_npm_i ; then
 	OUT=$?
 	if [ $OUT -eq 0 ]; then
 		echo "${latest_hash_of_package_json}" > latest_hash_of_package_json
+	else
+		error=true
 	fi
 fi
 
 ./node_modules/.bin/gulp --silent
+if [ $? -ne 0 ] ; then
+	error=true
+fi
 ./node_modules/.bin/webpack
+if [ $? -ne 0 ] ; then
+	error=true
+fi
+
+if ! $error ; then
+	echo "application available in 'dist/progbot.html'"
+fi

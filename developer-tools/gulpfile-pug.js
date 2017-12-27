@@ -25,6 +25,7 @@ gulp.task('watchpug', ['pug'], function () {
 		gulp.start('pug', endOfBuild);
 	});
 });
+
 gulp.task('watch', ['watchpug'], endOfBuild);
 
 gulp.task('default', ['pug'], endOfBuild);

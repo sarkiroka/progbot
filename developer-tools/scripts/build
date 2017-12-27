@@ -39,7 +39,11 @@ if $need_npm_i ; then
 	fi
 fi
 
-./node_modules/.bin/gulp --silent
+./node_modules/.bin/gulp --silent --gulpfile gulpfile-pug.js
+if [ $? -ne 0 ] ; then
+	error=true
+fi
+./node_modules/.bin/gulp --silent --gulpfile gulpfile-favicon.js
 if [ $? -ne 0 ] ; then
 	error=true
 fi

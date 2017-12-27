@@ -36,5 +36,6 @@ if $need_npm_i ; then
 	fi
 fi
 
-./node_modules/.bin/gulp watch --silent &
+./node_modules/.bin/gulp watch --silent --gulpfile gulpfile-pug.js &
+./node_modules/.bin/gulp watch --silent --gulpfile gulpfile-favicon.js &
 ./node_modules/.bin/webpack -w

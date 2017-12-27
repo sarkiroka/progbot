@@ -4,6 +4,8 @@
  */
 var onBackspace = require('./on/backspace');
 var onEndOfGame = require('./on/end-of-game');
+var onEndOfProgramming = require('./on/end-of-programming');
+var onKey = require('./on/key');
 module.exports = function (event) {
 	event.preventDefault();
 	switch (event.key) {
@@ -11,24 +13,13 @@ module.exports = function (event) {
 			onEndOfGame();
 			break;
 		case 'Enter':
-			drawCurrentPosition();
-			checkResult(function (success) {
-				if (success) {
-					currentLevel++;
-					win();
-					reDraw();
-				} else {
-					loose();
-				}
-				setDefaults();
-			});
+			onEndOfProgramming();
 			break;
 		case 'ArrowLeft':
 		case 'ArrowRight':
 		case 'ArrowUp':
 		case 'ArrowDown':
-			program.push(event.key.replace('Arrow', '').toLowerCase());
-			reDraw();
+			onKey(event.key.replace('Arrow', '').toLowerCase());
 			break;
 		case 'Backspace':
 			onBackspace();

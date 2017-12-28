@@ -2,15 +2,19 @@
  * a játék állapotának lekérdezése, vagy módosítása
  * @author sarkiroka on 2017.12.26.
  */
+var getTheBoard = require('../board/get-board');
+
 var STATE = {
 	IDLE: 'IDLE',
 	CHECK_ANIMATION: 'CHECK_ANIMATION',
 	RESULT_ANIMATION: 'RESULT_ANIMATION'
 };
-var program = [];
+var program = []; // az aktuálisan futtatandó kód helye, stringeket tartalmaz amik az utasitások
+var board = []; // az aktuálisan megjelenő tábla helye, minden tömbelem tartalmaz egy tipus,x,y triót.
+var currentLevel = 1;
 var state = STATE.IDLE;
-module.exports = function (state, newValue) {
-	if (typeof newValue == 'undefined' && arguments.length < 2) {
+module.exports = function (newValue) {
+	if (typeof newValue == 'undefined' && arguments.length < 1) {
 		var isNewValueOneOfValidState = typeof STATE[newValue] == 'string';
 		if (isNewValueOneOfValidState) {
 			state = STATE[newValue];
@@ -20,25 +24,27 @@ module.exports = function (state, newValue) {
 	}
 	return state;
 };
-module.exports.STATE = STATE;
+module.exports.IDLE = STATE.IDLE;
+module.exports.CHECK_ANIMATION = STATE.CHECK_ANIMATION;
+module.exports.RESULT_ANIMATION = STATE.RESULT_ANIMATION;
 module.exports.addProgramStep = function (programStep) {//visszatér a módosítások számával. ha negatív akkor hiba volt
-	if(state==STATE.IDLE) {
+	if (state == STATE.IDLE) {
 		program.push(programStep);
 		return 1;
-	}else{
+	} else {
 		console.warn('the operation is not permitted by current game state');
 		return -1;
 	}
 };
 module.exports.removeLastProgramStep = function () {// visszatér a módosítások számával. ha negativ akkor hiba volt
-	if(state==STATE.IDLE) {
-		if(program.length==0){
+	if (state == STATE.IDLE) {
+		if (program.length == 0) {
 			console.warn('there are no more proram step');
 			return 0;
 		}
 		program.pop();
 		return 1;
-	}else{
+	} else {
 		console.warn('the operation is not permitted by current game state');
 		return -1;
 	}
@@ -46,3 +52,17 @@ module.exports.removeLastProgramStep = function () {// visszatér a módosítás
 module.exports.getProgram = function () {
 	return program;
 };
+var currentBoard = null;
+module.exports.getBoard = function () {
+	return currentBoard;
+};
+module.exports.loadBoard = function (callback) {
+	getTheBoard(currentLevel, function (err, board) {
+		if (!err) {
+			currentBoard = board;
+		} else {
+			console.error('error in board request', err);
+		}
+		callback();
+	});
+}

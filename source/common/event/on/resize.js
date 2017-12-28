@@ -4,7 +4,9 @@
  */
 var canvas = require('../../draw/canvas');
 var debug = require('debug')('progbot:event:resize');
+var redraw = require('../../draw/redraw');
 module.exports = function (e) {
 	debug(e ? 'resize event handling' : 'initial resize event');
-	canvas.setSize(window.innerWidth, window.innerHeight)
+	canvas.setSize(window.innerWidth, window.innerHeight);
+	redraw();
 };

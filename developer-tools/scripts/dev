@@ -38,4 +38,5 @@ fi
 
 ./node_modules/.bin/gulp watch --silent --gulpfile gulpfile-pug.js &
 ./node_modules/.bin/gulp watch --silent --gulpfile gulpfile-favicon.js &
+./node_modules/.bin/gulp watch --silent --gulpfile gulpfile-boards.js &
 ./node_modules/.bin/webpack -w

@@ -47,6 +47,10 @@ fi
 if [ $? -ne 0 ] ; then
 	error=true
 fi
+./node_modules/.bin/gulp --silent --gulpfile gulpfile-boards.js
+if [ $? -ne 0 ] ; then
+	error=true
+fi
 ./node_modules/.bin/webpack
 if [ $? -ne 0 ] ; then
 	error=true

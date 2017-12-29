@@ -4,7 +4,7 @@
  */
 module.exports = {
 	//colors
-	backgroundColor: '#aaa',
+	backgroundColor: '#777',
 	programStepBackground: '#999',
 	programStepHighlightBackground: '#ddd',
 	arrowGradientStartColor:'#000',

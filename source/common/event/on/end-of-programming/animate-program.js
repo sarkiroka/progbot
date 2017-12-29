@@ -7,6 +7,7 @@ var board2CanvasCoordinates = require('../../../util/board-to-canvas-coordinate'
 var boardConstants = require('../../../../game/board/constants');
 var debug = require('debug')('progbot:event:on:end-of-programming:animate-program');
 var drawProgramSteps = require('../../../draw/program-steps');
+var gameConstants = require('../../../../game/constants');
 var state = require('../../../../game/state/index');
 
 var instructionPointer = -1;
@@ -38,12 +39,18 @@ module.exports = function animateProgram(callback) {
 	instructionPointer++;
 	var programStep = program[instructionPointer];
 	drawProgramSteps(program, instructionPointer);
-	animateStep(robotPosition, programStep, function (newPosition) {
-		robotPosition = newPosition;
-		if (instructionPointer < program.length - 1) {
-			animateProgram(callback);
-		} else {
-			callback(null, newPosition);
+	animateStep(robotPosition, programStep, function (newPosition, accident) {
+		if (!accident) {//volt hova menni
+			setTimeout(function () { // rest in this cell a little
+				robotPosition = newPosition;
+				if (instructionPointer < program.length - 1) {
+					animateProgram(callback);
+				} else {
+					callback(null, newPosition);
+				}
+			}, gameConstants.waitForNextStepSeconds * 1000);
+		} else {//leesett, így azonnal abbahagyjuk a dolgokat
+			callback(null, newPosition)
 		}
 	});
 };

@@ -5,7 +5,10 @@
 var Debug = require('debug');
 var disabledModules = [
 	'draw:arrow', 'draw:draw-step', 'draw:program-steps',
-	'draw:board:get-size'
+	'draw:board:get-size', 'event:on:end-of-programming:animate-step',
+	'draw:board', 'draw:clear', 'draw:redraw', 'event:resize',
+	'game:board:get-board', 'init:debug', 'draw:util:extend-board',
+	'event:on:end-of-programming:animate-program', 'event:end-of-game'
 ];
 Debug.enable('progbot:*,' + disabledModules.map(function (item) {
 		return '-progbot:' + item;

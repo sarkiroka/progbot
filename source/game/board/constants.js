@@ -1,5 +1,5 @@
 /**
- * a legalsó bit jelenti azt hogy ide lehet-e menni, vagy sem (szabad vagy akadály)
+ * a legalsó bit jelenti azt hogy ide lehet-e menni, vagy sem (szabad (0) vagy akadály (1))
  * a második és a harmadik bit együtt jelenti azt hogy ez a kiinduló pont (01) vagy a cél (10) minden más figyelmen kivül lesz hagyva
  * @author sarkiroka on 2017.12.28.
  */

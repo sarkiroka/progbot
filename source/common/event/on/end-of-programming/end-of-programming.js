@@ -6,6 +6,7 @@ var animateProgram = require('./animate-program');
 var checkResult = require('./check-result');
 var drawBoard = require('../../../draw/board/board');
 var drawResult = require('../../../draw/result');
+var extendBoard = require('../../../util/extend-board');
 var gameConstants = require('../../../../game/constants');
 var redraw = require('../../../draw/redraw');
 var saveBoard = require('../../../draw/board/save');
@@ -21,22 +22,25 @@ module.exports = function () {
 		state(state.CHECK_ANIMATION);
 		nextLevelLoaded = false;
 		var boardPositionAndSize = drawBoard(state.getBoard(), withoutRobot);
+		boardPositionAndSize = extendBoard(boardPositionAndSize);
 		saveBoard(boardPositionAndSize);
 		animateProgram(function (err, currentCoordinates) {
-			state(state.RESULT_ANIMATION);
-			saveBoard.clear();
-			animateProgram.reset();
-			resultIsSuccess = checkResult(currentCoordinates);
-			drawResult(resultIsSuccess);
-			if (resultIsSuccess) {
-				state.levelUp();
-				state.loadBoard(function () {
-					nextLevelLoaded = true;
+			setTimeout(function () {
+				state(state.RESULT_ANIMATION);
+				saveBoard.clear();
+				animateProgram.reset();
+				resultIsSuccess = checkResult(currentCoordinates);
+				drawResult(resultIsSuccess);
+				if (resultIsSuccess) {
+					state.levelUp();
+					state.loadBoard(function () {
+						nextLevelLoaded = true;
+						hideResultTimer = setTimeout(cancelResult, gameConstants.resultTimeSeconds * 1000);
+					});
+				} else {
 					hideResultTimer = setTimeout(cancelResult, gameConstants.resultTimeSeconds * 1000);
-				});
-			} else {
-				hideResultTimer = setTimeout(cancelResult, gameConstants.resultTimeSeconds * 1000);
-			}
+				}
+			}, gameConstants.beforeResultTimeSeconds * 1000);
 		});
 	} else {
 		console.warn('don\'t touch the keyboard while animating!!', state());

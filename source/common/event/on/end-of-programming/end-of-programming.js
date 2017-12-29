@@ -18,13 +18,18 @@ var resultIsSuccess = null;
 var nextLevelLoaded = false;
 
 module.exports = function () {
-	if (state() == state.IDLE) {
+	if (state() == state.RESULT_ANIMATION) {
+		publicCancelResult();
+	} else if (state() == state.IDLE) {
 		state(state.CHECK_ANIMATION);
 		nextLevelLoaded = false;
 		var boardPositionAndSize = drawBoard(state.getBoard(), withoutRobot);
 		boardPositionAndSize = extendBoard(boardPositionAndSize);
 		saveBoard(boardPositionAndSize);
 		animateProgram(function (err, currentCoordinates) {
+			if (err) {
+				console.error(err);
+			}
 			setTimeout(function () {
 				state(state.RESULT_ANIMATION);
 				saveBoard.clear();
@@ -46,7 +51,8 @@ module.exports = function () {
 		console.warn('don\'t touch the keyboard while animating!!', state());
 	}
 };
-module.exports.cancelResult = function () {
+module.exports.cancelResult = publicCancelResult;
+function publicCancelResult() {
 	if (!resultIsSuccess || nextLevelLoaded) {
 		clearTimeout(hideResultTimer);
 		cancelResult();

@@ -18,7 +18,7 @@ module.exports = function animateProgram(callback) {
 	var program = state.getProgram();
 	if (program.length == 0) {
 		error = new Error('there is no program');
-		return callback(error, null);
+		return callback(error, {x: 0, y: 0, direction: 0});
 	}
 	if (!robotPosition) {
 		debug('there is no robot position, calculate it');

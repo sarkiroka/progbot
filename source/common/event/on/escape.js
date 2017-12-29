@@ -11,10 +11,12 @@ module.exports = function () {
 	if (state() == state.RESULT_ANIMATION) {
 		debug('canceling the result screen');
 		onEndOfProgramming.cancelResult();
-	} else {
+	} else if (state() == state.IDLE) {
 		debug('end of the game');
 		state(state.END);
 		initKeyboard.done();
 		drawTheEnd();
+	} else {
+		console.warn('oh no, escape');
 	}
 };

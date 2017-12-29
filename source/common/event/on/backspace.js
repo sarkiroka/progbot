@@ -4,7 +4,13 @@
  */
 var onBackspace = require('../../../game/on/backspace');
 var redraw = require('../../draw/redraw');
+var state = require('../../../game/state/index');
+
 module.exports = function () {
-	onBackspace();
-	redraw();
+	if (state() == state.IDLE) {
+		onBackspace();
+		redraw();
+	} else {
+		console.warn('don\'t touch keyboard while animating...', state());
+	}
 };

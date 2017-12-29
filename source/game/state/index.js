@@ -7,14 +7,15 @@ var getTheBoard = require('../board/get-board');
 var STATE = {
 	IDLE: 'IDLE',
 	CHECK_ANIMATION: 'CHECK_ANIMATION',
-	RESULT_ANIMATION: 'RESULT_ANIMATION'
+	RESULT_ANIMATION: 'RESULT_ANIMATION',
+	END: 'END'
 };
 var program = []; // az aktuálisan futtatandó kód helye, stringeket tartalmaz amik az utasitások
 var board = []; // az aktuálisan megjelenő tábla helye, minden tömbelem tartalmaz egy tipus,x,y triót.
-var currentLevel = 1;
+var currentLevel = 0;
 var state = STATE.IDLE;
 module.exports = function (newValue) {
-	if (typeof newValue == 'undefined' && arguments.length < 1) {
+	if (typeof newValue != 'undefined' && arguments.length >= 1) {
 		var isNewValueOneOfValidState = typeof STATE[newValue] == 'string';
 		if (isNewValueOneOfValidState) {
 			state = STATE[newValue];
@@ -27,6 +28,7 @@ module.exports = function (newValue) {
 module.exports.IDLE = STATE.IDLE;
 module.exports.CHECK_ANIMATION = STATE.CHECK_ANIMATION;
 module.exports.RESULT_ANIMATION = STATE.RESULT_ANIMATION;
+module.exports.END = STATE.END;
 module.exports.addProgramStep = function (programStep) {//visszatér a módosítások számával. ha negatív akkor hiba volt
 	if (state == STATE.IDLE) {
 		program.push(programStep);
@@ -56,6 +58,9 @@ var currentBoard = null;
 module.exports.getBoard = function () {
 	return currentBoard;
 };
+module.exports.levelUp = function () {
+	currentLevel++;
+};
 module.exports.loadBoard = function (callback) {
 	getTheBoard(currentLevel, function (err, board) {
 		if (!err) {
@@ -63,6 +68,7 @@ module.exports.loadBoard = function (callback) {
 		} else {
 			console.error('error in board request', err);
 		}
+		program = [];//azért itt mert különben inkonzisztens lenne a programkód és a pálya
 		callback();
 	});
-}
+};

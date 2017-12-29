@@ -4,8 +4,17 @@
  */
 module.exports = function pad(str, length, pad) {
 	var retValue = str + '';
-	while (pad && str && retValue.length < length) {
-		retValue = pad+retValue;
+	var padString = pad + '';
+	var willGrowing = !!padString.length;
+	var notEnoughLong = retValue.length < length;
+	if (!willGrowing) {
+		console.warn('pad inpossible because no pad character defined', arguments);
 	}
+
+	while (notEnoughLong && willGrowing) {
+		retValue = padString + retValue;
+		notEnoughLong = retValue.length < length;
+	}
+
 	return retValue;
 };

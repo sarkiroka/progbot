@@ -5,6 +5,11 @@ html
 		script(src="progbot.js", async="async", defer="defer")
 		style.
 			html,body{margin:0;border:0;background:#f0f0f0}
+			.hide{display:none;}
 	body
 		canvas#c This browser is bad, try another one!
 		noscript This browser isn't good, try another one!
+		img#box.hide(src="box.png")
+		img#robot.hide(src="robot.png")
+		img#smiley.hide(src="smiley.png")
+		img#sad.hide(src="sad.png")

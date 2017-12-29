@@ -1,16 +1,16 @@
 /**
- *
+ * minden billentyűzetesemények elosztója
  * @author sarkiroka on 2017.06.01.
  */
 var onBackspace = require('./on/backspace');
-var onEndOfGame = require('./on/end-of-game');
-var onEndOfProgramming = require('./on/end-of-programming');
+var onEscape = require('./on/escape');
+var onEndOfProgramming = require('./on/end-of-programming/end-of-programming');
 var onKey = require('./on/key');
 module.exports = function (event) {
 	event.preventDefault();
 	switch (event.key) {
 		case 'Escape':
-			onEndOfGame();
+			onEscape();
 			break;
 		case 'Enter':
 			onEndOfProgramming();

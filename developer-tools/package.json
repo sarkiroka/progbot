@@ -4,6 +4,7 @@
   "private": true,
   "author": "sarkiroka",
   "devDependencies": {
+    "babel-minify-webpack-plugin": "0.2.0",
     "debug": "3.1.0",
     "gulp": "3.9.1",
     "gulp-decompress": "2.0.1",

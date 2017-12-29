@@ -1,5 +1,5 @@
 /**
- *
+ * build javascript file
  * @author sarkiroka on 2017.05.02.
  */
 const endOfBuild = require('./end-of-build')('JS');
@@ -7,6 +7,7 @@ const packageJSON = require('./package.json');
 const path = require('path');
 const webpack = require('webpack');
 const WebpackOnBuildPlugin = require('on-build-webpack');
+const MinifyPlugin = require("babel-minify-webpack-plugin");
 
 const PROJECT_BASE = path.normalize(path.join(__dirname, '..'));
 const ENTRY_PATH = path.join(PROJECT_BASE, 'source', 'index.js');
@@ -19,12 +20,7 @@ module.exports = {
 		filename: 'progbot.js'
 	},
 	plugins: [
-		new webpack.optimize.UglifyJsPlugin({
-			compress: {},
-			output: {
-				comments: false
-			}
-		}),
+		new MinifyPlugin(),
 		new webpack.BannerPlugin({
 			banner: `${packageJSON.name} v${packageJSON.version} (c) ${packageJSON.author}`,
 			entryOnly: true

@@ -2,10 +2,12 @@
  * a tábla lekérése
  * @author sarkiroka on 2017.12.28.
  */
-var pad=require('../../common/util/pad');
+var debug = require('debug')('progbot:game:board:get-board');
+var pad = require('../../common/util/pad');
 
 module.exports = function getTheBoard(level, callback) {
 	var name = pad(level, 4, '0') + '.json';
+	debug('try to get the "%s" board', name);
 	var xhr = new XMLHttpRequest();
 	xhr.open('GET', name);
 	xhr.onload = function () {

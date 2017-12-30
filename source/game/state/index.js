@@ -3,6 +3,7 @@
  * @author sarkiroka on 2017.12.26.
  */
 var getTheBoard = require('../board/get-board');
+var showDemo = require('../show-demo');
 
 var STATE = {
 	IDLE: 'IDLE',
@@ -69,6 +70,10 @@ module.exports.loadBoard = function (callback) {
 			console.error('error in board request', err);
 		}
 		program = [];//azért itt mert különben inkonzisztens lenne a programkód és a pálya
-		callback();
+		if (boardObject.demo) {
+			showDemo(boardObject.demo, callback);
+		} else {
+			callback();
+		}
 	});
 };

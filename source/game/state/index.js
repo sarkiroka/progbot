@@ -62,9 +62,9 @@ module.exports.levelUp = function () {
 	currentLevel++;
 };
 module.exports.loadBoard = function (callback) {
-	getTheBoard(currentLevel, function (err, board) {
+	getTheBoard(currentLevel, function (err, boardObject) {
 		if (!err) {
-			currentBoard = board;
+			currentBoard = boardObject.board;
 		} else {
 			console.error('error in board request', err);
 		}

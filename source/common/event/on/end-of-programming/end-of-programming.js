@@ -11,6 +11,7 @@ var gameConstants = require('../../../../game/constants');
 var redraw = require('../../../draw/redraw');
 var saveBoard = require('../../../draw/board/save');
 var state = require('../../../../game/state/index');
+var toggleAnimationSpeed=require('./../../../../game/toggle-animation-speed');
 
 var withoutRobot = true;
 var hideResultTimer = -1;
@@ -47,6 +48,8 @@ module.exports = function () {
 				}
 			}, gameConstants.beforeResultTimeSeconds * 1000);
 		});
+	} else if (state() == state.CHECK_ANIMATION) {
+		toggleAnimationSpeed();
 	} else {
 		console.warn('don\'t touch the keyboard while animating!!', state());
 	}
@@ -59,7 +62,7 @@ function publicCancelResult() {
 	} else {
 		//TODO beep
 	}
-};
+}
 function cancelResult() {
 	state(state.IDLE);
 	redraw();

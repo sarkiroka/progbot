@@ -11,7 +11,6 @@ var gameConstants = require('../../../../game/constants');
 var isFree = require('../../../../game/board/is-free');
 var saveBoard = require('../../../draw/board/save');
 
-var animationTime = gameConstants.robotStepTimeSeconds * 1000;
 var fps = 25;
 var delay = 1000 / fps; // animation speed
 
@@ -24,6 +23,7 @@ module.exports = function (position, instruction, callback) {
 	move();
 
 	function move() {
+		var animationTime = gameConstants.robotStepTimeSeconds * 1000; // azért itt, hogy később lehessen állítani a sebességen
 		var currentTime = Date.now();
 		var elapsedTime = currentTime - startTime;
 		var elapsedPercent = Math.min(1, elapsedTime / animationTime);

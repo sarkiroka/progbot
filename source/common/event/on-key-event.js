@@ -6,6 +6,8 @@ var onBackspace = require('./on/backspace');
 var onEscape = require('./on/escape');
 var onEndOfProgramming = require('./on/end-of-programming/end-of-programming');
 var onKey = require('./on/key');
+var onF = require('../../game/on/f');
+
 module.exports = function (event) {
 	event.preventDefault();
 	switch (event.key) {
@@ -14,6 +16,10 @@ module.exports = function (event) {
 			break;
 		case 'Enter':
 			onEndOfProgramming();
+			break;
+		case 'F':
+		case 'f':
+			onF();
 			break;
 		case 'ArrowLeft':
 		case 'ArrowRight':

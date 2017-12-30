@@ -66,11 +66,14 @@ function dat2json(options) {
 					}
 				}
 			}
+			var retValue = {
+				board: board
+			};
 
 			var filename = path.parse(path.basename(file.path)).name;
 			var transformedFile = new File({
 				path: filename + '.json',
-				contents: new Buffer(JSON.stringify(board))
+				contents: new Buffer(JSON.stringify(retValue))
 			});
 			this.push(transformedFile);
 

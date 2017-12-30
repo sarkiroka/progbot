@@ -77,3 +77,6 @@ module.exports.loadBoard = function (callback) {
 		}
 	});
 };
+module.exports.getLevel=function(){
+	return currentLevel;
+};

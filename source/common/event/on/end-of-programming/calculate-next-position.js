@@ -57,6 +57,8 @@ module.exports = function (startPosition, direction, percent) {
 		case 'right': //turn right
 			retValue.direction += 90 * percent;
 			break;
+		case 'space':
+			break;
 		default:
 			console.warn('unknown program instruction detected', direction);
 	}

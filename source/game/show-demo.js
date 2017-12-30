@@ -26,8 +26,8 @@ module.exports = function (url, callback) {
 		image.setAttribute('style', 'margin-left:-' + image.width / 2 + 'px;margin-top:-' + image.height / 2 + 'px;');
 		timer.setAttribute('style', 'margin-top:-' + Math.min(image.height / 2 + 32, window.innerHeight / 2 - 5) + 'px;');
 		var counterId = setInterval(function () {
-			timer.innerHTML = counter + '';
 			counter--;
+			timer.innerHTML = counter + '';
 		}, 999);
 		setTimeout(function () {
 			containerDiv.classList.add('hide');

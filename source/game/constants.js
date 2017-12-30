@@ -4,7 +4,7 @@
  */
 module.exports = {
 	beforeResultTimeSeconds: 0.75,
-	resultTimeSeconds: 10,
+	resultTimeSeconds: 5,
 	robotStepTimeSeconds: 2,
 	waitForNextStepSeconds: 0.5
 };

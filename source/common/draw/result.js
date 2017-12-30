@@ -3,10 +3,10 @@
  * @author sarkiroka on 2017.12.29.
  */
 var canvas = require('./canvas');
-var constants = require('./constants');
 
 var smiley = document.getElementById('smiley');
 var sad = document.getElementById('sad');
+
 module.exports = function (result) {
 	var ctx = canvas.ctx;
 	var size = Math.min(canvas.centerX, canvas.centerY);

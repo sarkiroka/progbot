@@ -5,14 +5,24 @@
 var onBackspace = require('./on/backspace');
 var onEscape = require('./on/escape');
 var onEndOfProgramming = require('./on/end-of-programming/end-of-programming');
-var onKey = require('./on/key');
 var onF = require('../../game/on/f');
+var onKey = require('./on/key');
+var onSpace = require('./on/space');
 
 module.exports = function (event) {
 	event.preventDefault();
 	switch (event.key) {
-		case 'Escape':
-			onEscape();
+		case 'ArrowLeft':
+		case 'ArrowRight':
+		case 'ArrowUp':
+		case 'ArrowDown':
+			onKey(event.key.replace('Arrow', '').toLowerCase());
+			break;
+		case ' ':
+			onSpace();
+			break;
+		case 'Backspace':
+			onBackspace();
 			break;
 		case 'Enter':
 			onEndOfProgramming();
@@ -21,14 +31,8 @@ module.exports = function (event) {
 		case 'f':
 			onF();
 			break;
-		case 'ArrowLeft':
-		case 'ArrowRight':
-		case 'ArrowUp':
-		case 'ArrowDown':
-			onKey(event.key.replace('Arrow', '').toLowerCase());
-			break;
-		case 'Backspace':
-			onBackspace();
+		case 'Escape':
+			onEscape();
 			break;
 		case 'F5':
 			location.reload();

@@ -4,7 +4,7 @@
  */
 var Debug = require('debug');
 var disabledModules = [
-	'draw:arrow', 'draw:draw-step', 'draw:program-steps',
+	'draw:arrow', 'draw:wait', 'draw:draw-step', 'draw:program-steps',
 	'draw:board:get-size', 'event:on:end-of-programming:animate-step',
 	'draw:board', 'draw:clear', 'draw:redraw', 'event:resize',
 	'game:board:get-board', 'init:debug', 'draw:util:extend-board',

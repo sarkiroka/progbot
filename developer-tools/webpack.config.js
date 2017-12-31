@@ -15,11 +15,10 @@ const TARGET_PATH = path.join(PROJECT_BASE, 'dist');
 
 module.exports = {
 	entry: ENTRY_PATH,
-	devtool: 'source-map',
+	//devtool: 'source-map',
 	output: {
 		path: TARGET_PATH,
 		filename: 'progbot.js'
-		// sourceMapFilename: 'http://localhost:81/progbot/dist/[file].map'
 	},
 	plugins: [
 		new MinifyPlugin(),

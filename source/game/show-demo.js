@@ -29,13 +29,24 @@ module.exports = function (url, callback) {
 			counter--;
 			timer.innerHTML = counter + '';
 		}, 999);
-		setTimeout(function () {
+		var demoTimeoutId = setTimeout(function () {
+			done();
+		}, demoTimeSeconds * 1000);
+
+		document.addEventListener('keydown', function demoKeyHandler(e) {
+			e.preventDefault();
+			document.removeEventListener('keydown', demoKeyHandler);
+			done();
+		});
+
+		function done() {
 			containerDiv.classList.add('hide');
 			containerDiv.removeChild(image);
 			containerDiv.removeChild(timer);
 			clearInterval(counterId);
+			clearTimeout(demoTimeoutId);
 			callback();
-		}, demoTimeSeconds * 1000);
+		}
 	}
 
 	function onerror() {
